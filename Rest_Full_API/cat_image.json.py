@@ -1,0 +1,1 @@
+{"image":"https:\/\/randomfox.ca\/images\/79.jpg","link":"https:\/\/randomfox.ca\/?i=79"}
