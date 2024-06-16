@@ -1,3 +1,5 @@
+# YouTub link
+>>https://www.youtube.com/watch?v=gylMKXr40v0&list=PLUDwpEzHYYLsuUBvuoYTlN0KsBB5t-BDa&index=5
 
 # Get Commands:
     In Python, the "get" commands you mentioned are part of the Selenium WebDriver API,
@@ -66,3 +68,6 @@ Selenium WebDriver environment and installed the necessary packages.
 These methods and properties are part of the Selenium WebDriver API and can be used in your Python scripts 
 to automate interactions with web pages. Keep in mind that you should have the appropriate 
 web driver (e.g., ChromeDriver, GeckoDriver) installed and configured for these commands to work correctly.
+
+# wait command
+>>https://www.youtube.com/watch?v=DE2iuBcD8L8&list=PLUDwpEzHYYLsuUBvuoYTlN0KsBB5t-BDa&index=6

@@ -1,6 +1,8 @@
 # Selenium is a widely used tool
     Selenium is a widely used tool in the software testing industry for automating web browser interactions.
     Here are some common use cases for Selenium:
+YouTube link
+>>https://www.youtube.com/watch?v=2DD-ynCIZ4w&list=PLUDwpEzHYYLsuUBvuoYTlN0KsBB5t-BDa
 
 # Functional Testing: 
     Selenium can be used to automate functional testing of web applications. It can simulate user interactions 
