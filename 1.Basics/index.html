@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Learning Path</title>
+    <style>
+        :root {
+            --beginner: #4CAF50;
+            --intermediate: #2196F3;
+            --advanced: #9C27B0;
+            --expert: #FF9800;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6b48ff 0%, #00aeff 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .level {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .level-header {
+            padding: 15px 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .beginner .level-header { background-color: var(--beginner); }
+        .intermediate .level-header { background-color: var(--intermediate); }
+        .advanced .level-header { background-color: var(--advanced); }
+        .expert .level-header { background-color: var(--expert); }
+
+        .level-content {
+            padding: 20px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .topic {
+            padding: 15px;
+            border-left: 4px solid;
+            background-color: #f9f9f9;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .beginner .topic { border-color: var(--beginner); }
+        .intermediate .topic { border-color: var(--intermediate); }
+        .advanced .topic { border-color: var(--advanced); }
+        .expert .topic { border-color: var(--expert); }
+
+        .topic h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .resources {
+            margin-top: 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .resources h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .resource {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .code-example {
+            margin-top: 40px;
+            background-color: #2d3a4b;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        .code-example h2 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        pre {
+            margin: 0;
+        }
+
+        .comment { color: #57a64a; }
+        .keyword { color: #569cd6; }
+        .function { color: #dcdcaa; }
+        .string { color: #ce9178; }
+        .number { color: #b5cea8; }
+
+        @media (max-width: 768px) {
+            .level-content {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Selenium Learning Path</h1>
+            <p>From complete beginner to automation expert</p>
+        </header>
+
+        <div class="roadmap">
+            <div class="level beginner">
+                <div class="level-header">Beginner Level</div>
+                <div class="level-content">
+                    <div class="topic">
+                        <h3>Understanding Selenium</h3>
+                        <p>What is Selenium, its components, and how it works.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Setup and Installation</h3>
+                        <p>Installing Selenium WebDriver, browsers, and language bindings.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Basic Locators</h3>
+                        <p>Finding elements using ID, Name, ClassName, TagName, etc.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>First Automation Script</h3>
+                        <p>Writing and executing your first test case.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level intermediate">
+                <div class="level-header">Intermediate Level</div>
+                <div class="level-content">
+                    <div class="topic">
+                        <h3>Advanced Locators</h3>
+                        <p>XPath and CSS Selectors for complex element identification.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Synchronization</h3>
+                        <p>Implicit, Explicit, and Fluent Waits for stable tests.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Handling UI Elements</h3>
+                        <p>Working with dropdowns, alerts, frames, and windows.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Test Frameworks</h3>
+                        <p>JUnit, TestNG, or other testing frameworks integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level advanced">
+                <div class="level-header">Advanced Level</div>
+                <div class="level-content">
+                    <div class="topic">
+                        <h3>Page Object Model</h3>
+                        <p>Design pattern for maintainable test code.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Data-Driven Testing</h3>
+                        <p>Using external data sources to parameterize tests.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Cross-Browser Testing</h3>
+                        <p>Running tests on multiple browsers and platforms.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Parallel Execution</h3>
+                        <p>Running tests in parallel to reduce execution time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level expert">
+                <div class="level-header">Expert Level</div>
+                <div class="level-content">
+                    <div class="topic">
+                        <h3>Selenium Grid</h3>
+                        <p>Distributed test execution across multiple machines.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Docker Integration</h3>
+                        <p>Containerized test execution for consistency.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>CI/CD Integration</h3>
+                        <p>Integrating tests with Jenkins, GitLab CI, etc.</p>
+                    </div>
+                    <div class="topic">
+                        <h3>Advanced Reporting</h3>
+                        <p>ExtentReports, Allure, and other reporting frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources">
+            <h2>Learning Resources</h2>
+            <div class="resource-list">
+                <div class="resource">
+                    <h3>Official Documentation</h3>
+                    <p>Selenium's official documentation is the best place to start.</p>
+                </div>
+                <div class="resource">
+                    <h3>Online Courses</h3>
+                    <p>Platforms like Udemy, Coursera, and Pluralsight offer comprehensive courses.</p>
+                </div>
+                <div class="resource">
+                    <h3>Books</h3>
+                    <p>"Selenium WebDriver 3 Practical Guide", "Selenium Testing Tools Cookbook"</p>
+                </div>
+                <div class="resource">
+                    <h3>YouTube Channels</h3>
+                    <p>FreeCodeCamp, The Testing Academy, Automation Step by Step</p>
+                </div>
+                <div class="resource">
+                    <h3>Practice Websites</h3>
+                    <p>Demo sites like saucedemo.com, automationpractice.com for practice.</p>
+                </div>
+                <div class="resource">
+                    <h3>Community</h3>
+                    <p>Stack Overflow, Selenium Google Group, Reddit communities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-example">
+            <h2>Sample Selenium Code (Java)</h2>
+            <pre><code><span class="keyword">import</span> org.openqa.selenium.WebDriver;
+<span class="keyword">import</span> org.openqa.selenium.chrome.ChromeDriver;
+<span class="keyword">import</span> org.openqa.selenium.By;
+<span class="keyword">import</span> org.openqa.selenium.WebElement;
+
+<span class="keyword">public class</span> <span class="function">FirstTest</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(String[] args) {
+        <span class="comment">// Set the path to chromedriver</span>
+        System.setProperty(<span class="string">"webdriver.chrome.driver"</span>, <span class="string">"path/to/chromedriver"</span>);
+
+        <span class="comment">// Initialize the WebDriver</span>
+        WebDriver driver = <span class="keyword">new</span> ChromeDriver();
+
+        <span class="comment">// Navigate to a website</span>
+        driver.get(<span class="string">"https://www.google.com"</span>);
+
+        <span class="comment">// Find an element and interact with it</span>
+        WebElement searchBox = driver.findElement(By.name(<span class="string">"q"</span>));
+        searchBox.sendKeys(<span class="string">"Selenium WebDriver"</span>);
+        searchBox.submit();
+
+        <span class="comment">// Verify results</span>
+        String pageTitle = driver.getTitle();
+        <span class="keyword">if</span> (pageTitle.contains(<span class="string">"Selenium WebDriver"</span>)) {
+            System.out.println(<span class="string">"Test Passed!"</span>);
+        } <span class="keyword">else</span> {
+            System.out.println(<span class="string">"Test Failed!"</span>);
+        }
+
+        <span class="comment">// Close the browser</span>
+        driver.quit();
+    }
+}</code></pre>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactivity to toggle topic details
+        document.querySelectorAll('.topic').forEach(topic => {
+            topic.addEventListener('click', () => {
+                topic.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

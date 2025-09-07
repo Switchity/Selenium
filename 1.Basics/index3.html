@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Setup and Installation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .card-body li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .card-body li i {
+            margin-right: 10px;
+            color: #3498db;
+        }
+
+        .setup-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .setup-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .step {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .code-example {
+            background: #2d3a4b;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            color: #f8f8f2;
+            margin-bottom: 40px;
+        }
+
+        .code-example h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        pre {
+            background: #1e2a38;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 0;
+        }
+
+        .comment { color: #57a64a; }
+        .keyword { color: #569cd6; }
+        .function { color: #dcdcaa; }
+        .string { color: #ce9178; }
+        .number { color: #b5cea8; }
+
+        .browser-support {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .browser-support h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .browsers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .browser {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .browser-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .chrome { color: #4285F4; }
+        .firefox { color: #FF7139; }
+        .edge { color: #0078D7; }
+        .safari { color: #000000; }
+
+        .language-support {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .language-support h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .language {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .language-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .java { color: #007396; }
+        .python { color: #3776AB; }
+        .csharp { color: #239120; }
+        .javascript { color: #F7DF1E; }
+        .ruby { color: #CC342D; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .steps, .browsers, .languages {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step, .browser, .language {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Selenium Setup and Installation</h1>
+            <p class="subtitle">Learn how to install Selenium WebDriver, browser drivers, and language bindings for test automation</p>
+        </header>
+
+        <div class="card-container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Prerequisites</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Java Development Kit (JDK)</li>
+                        <li><i class="fas fa-check-circle"></i> Python (if using Python)</li>
+                        <li><i class="fas fa-check-circle"></i> .NET SDK (if using C#)</li>
+                        <li><i class="fas fa-check-circle"></i> Node.js (if using JavaScript)</li>
+                        <li><i class="fas fa-check-circle"></i> Ruby (if using Ruby)</li>
+                        <li><i class="fas fa-check-circle"></i> IDE (Eclipse, IntelliJ, VS Code)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>WebDriver Setup</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Download browser-specific drivers</li>
+                        <li><i class="fas fa-check-circle"></i> ChromeDriver for Chrome</li>
+                        <li><i class="fas fa-check-circle"></i> GeckoDriver for Firefox</li>
+                        <li><i class="fas fa-check-circle"></i> Add drivers to system PATH</li>
+                        <li><i class="fas fa-check-circle"></i> Or specify driver path in code</li>
+                        <li><i class="fas fa-check-circle"></i> Use WebDriver Manager for automation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Language Bindings</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Java: Add Selenium JARs to classpath</li>
+                        <li><i class="fas fa-check-circle"></i> Python: pip install selenium</li>
+                        <li><i class="fas fa-check-circle"></i> C#: Install Selenium.WebDriver NuGet</li>
+                        <li><i class="fas fa-check-circle"></i> JavaScript: npm install selenium-webdriver</li>
+                        <li><i class="fas fa-check-circle"></i> Ruby: gem install selenium-webdriver</li>
+                        <li><i class="fas fa-check-circle"></i> Verify installation with simple test</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="setup-section">
+            <h2>Step-by-Step Installation Process</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install Java</h3>
+                    <p>Download and install JDK from Oracle's website</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set up IDE</h3>
+                    <p>Install Eclipse, IntelliJ, or VS Code with necessary plugins</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Download Drivers</h3>
+                    <p>Get ChromeDriver, GeckoDriver, etc. from official sources</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Add to PATH</h3>
+                    <p>Extract drivers and add their location to system PATH</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Add Selenium Libraries</h3>
+                    <p>Add Selenium JAR files to your project or install via package manager</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Verify Setup</h3>
+                    <p>Write and run a simple test to confirm everything works</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-example">
+            <h2>Installation Commands for Different Languages</h2>
+            <pre><code><span class="comment"># Python</span>
+<span class="keyword">pip install</span> selenium
+
+<span class="comment"># Java (Maven - add to pom.xml)</span>
+&lt;dependency&gt;
+    &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+    &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+    &lt;version&gt;4.10.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+<span class="comment"># JavaScript/Node.js</span>
+<span class="keyword">npm install</span> selenium-webdriver
+
+<span class="comment"># C# (.NET Core CLI)</span>
+<span class="keyword">dotnet add</span> package Selenium.WebDriver
+
+<span class="comment"># Ruby</span>
+<span class="keyword">gem install</span> selenium-webdriver</code></pre>
+        </div>
+
+        <div class="browser-support">
+            <h2>Browser Drivers</h2>
+            <div class="browsers">
+                <div class="browser">
+                    <div class="browser-icon">
+                        <i class="fab fa-chrome chrome"></i>
+                    </div>
+                    <h3>ChromeDriver</h3>
+                    <p>Download from: chromedriver.chromium.org</p>
+                </div>
+                <div class="browser">
+                    <div class="browser-icon">
+                        <i class="fab fa-firefox firefox"></i>
+                    </div>
+                    <h3>GeckoDriver</h3>
+                    <p>Download from: github.com/mozilla/geckodriver</p>
+                </div>
+                <div class="browser">
+                    <div class="browser-icon">
+                        <i class="fab fa-edge edge"></i>
+                    </div>
+                    <h3>EdgeDriver</h3>
+                    <p>Download from: developer.microsoft.com/en-us/microsoft-edge/tools/webdriver</p>
+                </div>
+                <div class="browser">
+                    <div class="browser-icon">
+                        <i class="fab fa-safari safari"></i>
+                    </div>
+                    <h3>SafariDriver</h3>
+                    <p>Built-in on macOS (enable Developer menu)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="language-support">
+            <h2>Language Bindings Support</h2>
+            <div class="languages">
+                <div class="language">
+                    <div class="language-icon">
+                        <i class="fab fa-java java"></i>
+                    </div>
+                    <h3>Java</h3>
+                    <p>Most widely used binding with extensive support</p>
+                </div>
+                <div class="language">
+                    <div class="language-icon">
+                        <i class="fab fa-python python"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <p>Simple syntax and easy to learn for beginners</p>
+                </div>
+                <div class="language">
+                    <div class="language-icon">
+                        <i class="fab fa-microsoft csharp"></i>
+                    </div>
+                    <h3>C#</h3>
+                    <p>Popular for .NET environments and Visual Studio</p>
+                </div>
+                <div class="language">
+                    <div class="language-icon">
+                        <i class="fab fa-js-square javascript"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Node.js implementation for full-stack developers</p>
+                </div>
+                <div class="language">
+                    <div class="language-icon">
+                        <i class="fas fa-gem ruby"></i>
+                    </div>
+                    <h3>Ruby</h3>
+                    <p>Clean syntax and popular in the testing community</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-example">
+            <h2>Basic Selenium Test in Java</h2>
+            <pre><code><span class="keyword">import</span> org.openqa.selenium.WebDriver;
+<span class="keyword">import</span> org.openqa.selenium.chrome.ChromeDriver;
+
+<span class="keyword">public class</span> <span class="function">FirstTest</span> {
+    <span class="keyword">public static void</span> <span class="function">main</span>(String[] args) {
+        <span class="comment">// Set the path to chromedriver</span>
+        System.setProperty(<span class="string">"webdriver.chrome.driver"</span>, <span class="string">"path/to/chromedriver"</span>);
+
+        <span class="comment">// Initialize the WebDriver</span>
+        WebDriver driver = <span class="keyword">new</span> ChromeDriver();
+
+        <span class="comment">// Navigate to a website</span>
+        driver.get(<span class="string">"https://www.google.com"</span>);
+
+        <span class="comment">// Get and print the page title</span>
+        String title = driver.getTitle();
+        System.out.println(<span class="string">"Page title is: "</span> + title);
+
+        <span class="comment">// Close the browser</span>
+        driver.quit();
+    }
+}</code></pre>
+        </div>
+
+        <footer>
+            <p>Created for educational purposes - Selenium Setup and Installation Guide</p>
+            <p>Selenium is a trademark of Software Freedom Conservancy</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation for step elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.opacity = 1;
+                    step.style.transform = 'translateY(0)';
+                }, 300 * index);
+            });
+
+            // Initial state for animation
+            steps.forEach(step => {
+                step.style.opacity = 0;
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>
